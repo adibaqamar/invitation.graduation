@@ -1,0 +1,374 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff7f8, #fffdf5, #fef6ff);
+  color: #2d2d2d;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(255, 182, 193, 0.35), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255, 215, 0, 0.18), transparent 30%),
+    radial-gradient(circle at center, rgba(255, 240, 245, 0.75), transparent 45%);
+  z-index: -3;
+}
+
+.hearts-container,
+.sparkles-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hearts-container {
+  z-index: 0;
+}
+
+.sparkles-container {
+  z-index: 1;
+}
+
+.heart,
+.sparkle {
+  position: absolute;
+  bottom: -30px;
+  opacity: 0;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+.heart {
+  animation-name: floatUp;
+}
+
+.sparkle {
+  animation-name: sparkleUp;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.7);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkleUp {
+  0% {
+    transform: translateY(0) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.2) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.invitation-card {
+  width: 100%;
+  max-width: 950px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  border-radius: 32px;
+  padding: 50px 30px;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.tag {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: #fff0f4;
+  color: #d14d72;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.invitation-card h1 {
+  font-size: 56px;
+  line-height: 1.1;
+  color: #222;
+  margin-bottom: 18px;
+}
+
+.invitation-card h1 span {
+  display: block;
+  color: #e46b8a;
+  margin-top: 6px;
+}
+
+.message,
+.personal-note p,
+.photo-note {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+}
+
+.message {
+  margin-bottom: 32px;
+}
+
+.countdown-section,
+.photo-section,
+.personal-note,
+.actions {
+  margin-top: 34px;
+}
+
+.countdown-section h2,
+.photo-section h2,
+.personal-note h2 {
+  font-size: 28px;
+  color: #222;
+  margin-bottom: 18px;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.count-box {
+  background: #fffafc;
+  border: 1px solid #ffe0ea;
+  border-radius: 24px;
+  padding: 22px 14px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+}
+
+.count-box span {
+  display: block;
+  font-size: 30px;
+  font-weight: 800;
+  color: #d14d72;
+}
+
+.count-box p {
+  margin-top: 8px;
+  color: #555;
+  font-weight: 600;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.detail-box {
+  padding: 24px 18px;
+  border-radius: 24px;
+  background: #fffafc;
+  border: 1px solid #ffe0ea;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+}
+
+.icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.detail-box h3 {
+  color: #d14d72;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.detail-box p {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+.photo-card {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+  border: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+.photo-card img {
+  width: 100%;
+  display: block;
+  height: 380px;
+  object-fit: cover;
+}
+
+.photo-note {
+  margin-top: 14px;
+}
+
+.actions {
+  background: #222;
+  color: white;
+  padding: 30px 20px;
+  border-radius: 28px;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 13px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, #ff8cab, #ffb3c7);
+  color: white;
+  box-shadow: 0 12px 22px rgba(255, 105, 145, 0.28);
+}
+
+.secondary-btn {
+  background: white;
+  color: #333;
+}
+
+.glass-btn {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.rsvp-message {
+  margin-top: 8px;
+  color: #f3d7e1;
+  font-size: 15px;
+}
+
+.personal-note {
+  background: #fff7fa;
+  border: 1px solid #ffe0ea;
+  border-radius: 26px;
+  padding: 28px 20px;
+}
+
+.footer {
+  margin-top: 34px;
+}
+
+.from {
+  font-size: 20px;
+  color: #555;
+}
+
+.from span {
+  font-weight: 800;
+  color: #222;
+}
+
+.quote {
+  margin-top: 12px;
+  color: #d14d72;
+  font-style: italic;
+  font-size: 17px;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.9s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
+.delay-4 { animation-delay: 0.6s; }
+.delay-5 { animation-delay: 0.75s; }
+.delay-6 { animation-delay: 0.9s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .invitation-card {
+    padding: 34px 18px;
+  }
+
+  .invitation-card h1 {
+    font-size: 38px;
+  }
+
+  .message,
+  .personal-note p,
+  .photo-note {
+    font-size: 16px;
+  }
+
+  .count-box span {
+    font-size: 24px;
+  }
+
+  .photo-card img {
+    height: 260px;
+  }
+
+  .countdown-section h2,
+  .photo-section h2,
+  .personal-note h2 {
+    font-size: 24px;
+  }
+}
